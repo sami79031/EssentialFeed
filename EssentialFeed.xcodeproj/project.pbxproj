@@ -12,6 +12,7 @@
 		32E7A15B2524B302006BAFBA /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E7A15A2524B302006BAFBA /* FeedItem.swift */; };
 		32E7A15F2524B318006BAFBA /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E7A15E2524B318006BAFBA /* FeedLoader.swift */; };
 		32E7A16D2524BC21006BAFBA /* RemoteFeedLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E7A16C2524BC21006BAFBA /* RemoteFeedLoaderTests.swift */; };
+		32E7A1722524C23A006BAFBA /* RemoteFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E7A1712524C23A006BAFBA /* RemoteFeedLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +34,7 @@
 		32E7A15A2524B302006BAFBA /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
 		32E7A15E2524B318006BAFBA /* FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
 		32E7A16C2524BC21006BAFBA /* RemoteFeedLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoaderTests.swift; sourceTree = "<group>"; };
+		32E7A1712524C23A006BAFBA /* RemoteFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 		32E7A13F2524B23B006BAFBA /* EssentialFeed */ = {
 			isa = PBXGroup;
 			children = (
+				32E7A1702524C221006BAFBA /* Feed API */,
 				32E7A1592524B2CF006BAFBA /* Feed Feature */,
 				32E7A1402524B23B006BAFBA /* EssentialFeed.h */,
 				32E7A1412524B23B006BAFBA /* Info.plist */,
@@ -98,6 +101,14 @@
 				32E7A15E2524B318006BAFBA /* FeedLoader.swift */,
 			);
 			path = "Feed Feature";
+			sourceTree = "<group>";
+		};
+		32E7A1702524C221006BAFBA /* Feed API */ = {
+			isa = PBXGroup;
+			children = (
+				32E7A1712524C23A006BAFBA /* RemoteFeedLoader.swift */,
+			);
+			path = "Feed API";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32E7A15F2524B318006BAFBA /* FeedLoader.swift in Sources */,
+				32E7A1722524C23A006BAFBA /* RemoteFeedLoader.swift in Sources */,
 				32E7A15B2524B302006BAFBA /* FeedItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,8 +372,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = CPHBYHTP2K;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -385,8 +400,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = CPHBYHTP2K;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -411,6 +429,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8XF7WV3EGF;
 				INFOPLIST_FILE = EssentialFeedTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -431,6 +450,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8XF7WV3EGF;
 				INFOPLIST_FILE = EssentialFeedTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
