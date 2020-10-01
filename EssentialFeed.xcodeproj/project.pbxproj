@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3286F06825262578006E4759 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3286F06725262578006E4759 /* HTTPClient.swift */; };
+		3286F06C252625E0006E4759 /* FeedItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3286F06B252625E0006E4759 /* FeedItemsMapper.swift */; };
 		32E7A1472524B23B006BAFBA /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E7A13D2524B23B006BAFBA /* EssentialFeed.framework */; };
 		32E7A14E2524B23B006BAFBA /* EssentialFeed.h in Headers */ = {isa = PBXBuildFile; fileRef = 32E7A1402524B23B006BAFBA /* EssentialFeed.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32E7A15B2524B302006BAFBA /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E7A15A2524B302006BAFBA /* FeedItem.swift */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		3286F06725262578006E4759 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		3286F06B252625E0006E4759 /* FeedItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemsMapper.swift; sourceTree = "<group>"; };
 		32E7A13D2524B23B006BAFBA /* EssentialFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EssentialFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32E7A1402524B23B006BAFBA /* EssentialFeed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EssentialFeed.h; sourceTree = "<group>"; };
 		32E7A1412524B23B006BAFBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			children = (
 				32E7A1712524C23A006BAFBA /* RemoteFeedLoader.swift */,
 				3286F06725262578006E4759 /* HTTPClient.swift */,
+				3286F06B252625E0006E4759 /* FeedItemsMapper.swift */,
 			);
 			path = "Feed API";
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3286F06C252625E0006E4759 /* FeedItemsMapper.swift in Sources */,
 				32E7A15F2524B318006BAFBA /* FeedLoader.swift in Sources */,
 				32E7A1722524C23A006BAFBA /* RemoteFeedLoader.swift in Sources */,
 				3286F06825262578006E4759 /* HTTPClient.swift in Sources */,
