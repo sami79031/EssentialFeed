@@ -20,7 +20,7 @@ class EssentialFeedAPIEndToEndTests: XCTestCase {
             XCTAssertEqual(items[3], expectedItem(at: 3))
             XCTAssertEqual(items[4], expectedItem(at: 4))
             XCTAssertEqual(items[5], expectedItem(at: 5))
-            XCTAssertEqual(items[6], expectedItem(at: 6))
+            XCTAssertEqual(items[6], expectedItem(at: 6))
             XCTAssertEqual(items[7], expectedItem(at: 7))
 
         case let .failure(error)?:
