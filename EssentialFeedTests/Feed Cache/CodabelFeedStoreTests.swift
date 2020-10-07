@@ -93,16 +93,10 @@ class CodableFeedStoreTests: XCTestCase {
         let feed = uniqueImageFeed().local
         let timestamp = Date()
         
-        let exp = expectation(description: "Wait for cache retrieval")
-        sut.insert(feed, timestamp: timestamp) { insertionError in
-            XCTAssertNil(insertionError, "Expected feed to be inserted successfully")
-            
-            exp.fulfill()
-        }
+        insert((feed, timestamp), to: sut)
         
         expect(sut, toRetrieveTwice: .found(feed: feed, timestamp: timestamp))
         
-        wait(for: [exp], timeout: 1.0)
     }
     
     func test_retrieve_hasNoSideEffectsOnNonEmptyCache() {
@@ -110,20 +104,21 @@ class CodableFeedStoreTests: XCTestCase {
         let feed = uniqueImageFeed().local
         let timestamp = Date()
         
-        let exp = expectation(description: "Wait for cache retrieval")
-        
-        sut.insert(feed, timestamp: timestamp) { insertionError in
-            XCTAssertNil(insertionError, "Expected feed to be inserted successfully")
-            
-            exp.fulfill()
-        }
-        
-        wait(for: [exp], timeout: 1.0)
-        
+        insert((feed, timestamp), to: sut)
+                
         expect(sut, toRetrieve: .found(feed: feed, timestamp: timestamp))
     }
     
     // - MARK: Helpers
+    
+    private func insert(_ cache: (feed: [LocalFeedImage], timestamp: Date), to sut: CodableFeedStore) {
+        let exp = expectation(description: "Wait for cache insertion")
+        sut.insert(cache.feed, timestamp: cache.timestamp) { insertionError in
+            XCTAssertNil(insertionError, "Expected feed to be inserted successfully")
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1.0)
+    }
     
     private func expect(_ sut: CodableFeedStore, toRetrieveTwice expectedResult: RetrieveCachedFeedResult, file: StaticString = #file, line: UInt = #line) {
         expect(sut, toRetrieve: expectedResult, file: file, line: line)
@@ -139,7 +134,7 @@ class CodableFeedStoreTests: XCTestCase {
             
             case (.empty, .empty):
                 break
-            
+                
             case let (.found(feed: expectedFeed, timestamp: expectedTimestamp), .found(feed: retrievedFeed, timestamp: retrievedTimestamp)):
                 XCTAssertEqual(retrievedFeed, expectedFeed, file: file, line: line)
                 XCTAssertEqual(expectedTimestamp, retrievedTimestamp, file: file, line: line)
