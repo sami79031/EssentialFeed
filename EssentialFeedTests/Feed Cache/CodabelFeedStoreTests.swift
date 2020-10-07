@@ -54,7 +54,7 @@ class CodableFeedStore {
         } catch {
             completion(.failure(error))
         }
-    
+        
     }
     
     func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping FeedStore.InsertionCompletion) {
@@ -120,6 +120,15 @@ class CodableFeedStoreTests: XCTestCase {
         try! "invalid data".write(to: storeURL, atomically: false, encoding: .utf8)
         
         expect(sut, toRetrieve: .failure(anyNSError()))
+    }
+    
+    func test_retrieve_hasNoSideEffectsOnFailure() {
+        let storeURL = testSpecificStoreURL()
+        let sut = makeSUT(storeURL: storeURL)
+        
+        try! "invalid data".write(to: storeURL, atomically: false, encoding: .utf8)
+        
+        expect(sut, toRetrieveTwice: .failure(anyNSError()))
     }
     
     // - MARK: Helpers
