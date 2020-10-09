@@ -24,9 +24,8 @@ public final class CoreDataFeedStore: FeedStore {
     }
     
     public func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping InsertionCompletion) {
-        let context = self.context
         
-        context.perform {
+        perform { context in
             let cache = ManagedCache.getUniqueManagedCache(in: context)
             cache.timestamp = timestamp
             cache.feed = feed.mapToManagedFeedImages(in: context).toNSOrderedSet
@@ -42,9 +41,8 @@ public final class CoreDataFeedStore: FeedStore {
     }
     
     public func retrieve(completion: @escaping RetrievalCompletion) {
-        let context = self.context
         
-        context.perform {
+        perform { context in
             guard let managedCaches = try? context.fetch(ManagedCache.fetchRequest() as NSFetchRequest<ManagedCache>),
                   let firstObject = managedCaches.first,
                   let timestamp = firstObject.timestamp else {
@@ -73,6 +71,11 @@ public final class CoreDataFeedStore: FeedStore {
             return error
         }
         
+    }
+    
+    private func perform(_ action: @escaping (NSManagedObjectContext) -> Void) {
+        let context = self.context
+        context.perform { action(context) }
     }
     
 }
