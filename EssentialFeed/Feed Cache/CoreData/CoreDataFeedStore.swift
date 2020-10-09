@@ -58,7 +58,7 @@ public final class CoreDataFeedStore: FeedStore {
     }
     
     private func deleteAllCachedData() -> Error? {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: ManagedCache.entity().name!)
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ManagedCache")
         let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         batchDeleteRequest.resultType = .resultTypeObjectIDs
         
