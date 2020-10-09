@@ -21,7 +21,7 @@
 		32E00FAE252E044600A7F302 /* CodableFeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E00FAD252E044600A7F302 /* CodableFeedStore.swift */; };
 		32E00FB3252E10EB00A7F302 /* FeedStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E00FB2252E10EB00A7F302 /* FeedStoreSpecs.swift */; };
 		32E00FB8252E11D000A7F302 /* XCTestCase+FeedStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E00FB7252E11D000A7F302 /* XCTestCase+FeedStoreSpecs.swift */; };
-		32E0109E25307CF000A7F302 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 32E0109C25307CF000A7F302 /* Model.xcdatamodeld */; };
+		32E0109E25307CF000A7F302 /* FeedStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 32E0109C25307CF000A7F302 /* FeedStore.xcdatamodeld */; };
 		32E010A32530807A00A7F302 /* CoreDataFeedStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E010A22530807A00A7F302 /* CoreDataFeedStoreTests.swift */; };
 		32E010A8253080E500A7F302 /* CoreDataFeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E010A7253080E400A7F302 /* CoreDataFeedStore.swift */; };
 		32E010B1253081CE00A7F302 /* XCTestCase+FeedStoreHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E010B0253081CE00A7F302 /* XCTestCase+FeedStoreHelpers.swift */; };
@@ -170,7 +170,7 @@
 		32E0109B25307CDB00A7F302 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				32E0109C25307CF000A7F302 /* Model.xcdatamodeld */,
+				32E0109C25307CF000A7F302 /* FeedStore.xcdatamodeld */,
 				32E010A7253080E400A7F302 /* CoreDataFeedStore.swift */,
 			);
 			path = CoreData;
@@ -431,7 +431,7 @@
 				32E00FAE252E044600A7F302 /* CodableFeedStore.swift in Sources */,
 				32E7A15B2524B302006BAFBA /* FeedImage.swift in Sources */,
 				32ED66FC252B3C2E00008663 /* LocalFeedLoader.swift in Sources */,
-				32E0109E25307CF000A7F302 /* Model.xcdatamodeld in Sources */,
+				32E0109E25307CF000A7F302 /* FeedStore.xcdatamodeld in Sources */,
 				3286F0742527679C006E4759 /* URLSessionHTTPClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -769,13 +769,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		32E0109C25307CF000A7F302 /* Model.xcdatamodeld */ = {
+		32E0109C25307CF000A7F302 /* FeedStore.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				32E0109D25307CF000A7F302 /* Model.xcdatamodel */,
 			);
 			currentVersion = 32E0109D25307CF000A7F302 /* Model.xcdatamodel */;
-			path = Model.xcdatamodeld;
+			path = FeedStore.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
