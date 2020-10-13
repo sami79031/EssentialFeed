@@ -39,6 +39,6 @@ final class FeedImagePresenter {
     
     func didFinishLoadingFeed(with error: Error) {
         loadingView?.display(FeedLoadingViewModel(isLoading: false))
-    }        
+    }
 }
 
