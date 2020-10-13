@@ -16,7 +16,6 @@ final public class FeedViewController: UITableViewController, UITableViewDataSou
             tableView.reloadData()
         }
     }
-    private var cellControllers = [IndexPath: FeedImageCellController]()
     
     convenience init(refreshController: FeedRefreshViewController) {
         self.init()
