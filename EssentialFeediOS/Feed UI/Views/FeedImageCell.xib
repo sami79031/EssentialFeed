@@ -57,14 +57,26 @@ Label</string>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XVj-vw-1vi">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="374"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yWf-Kl-XTq">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="374"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                        <state key="normal" title="↻"/>
+                                        <connections>
+                                            <action selector="retryButtonTapped" destination="ADJ-OJ-70V" eventType="touchUpInside" id="tZ1-4Z-Ot9"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.89019607840000003" green="0.89019607840000003" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="yWf-Kl-XTq" secondAttribute="trailing" id="5Le-rR-WVx"/>
                                     <constraint firstItem="XVj-vw-1vi" firstAttribute="leading" secondItem="i8a-TU-xSn" secondAttribute="leading" id="6FO-ZS-as7"/>
+                                    <constraint firstItem="yWf-Kl-XTq" firstAttribute="top" secondItem="i8a-TU-xSn" secondAttribute="top" id="7gb-FG-czQ"/>
+                                    <constraint firstItem="yWf-Kl-XTq" firstAttribute="leading" secondItem="i8a-TU-xSn" secondAttribute="leading" id="Dwh-3p-YjX"/>
                                     <constraint firstAttribute="bottom" secondItem="XVj-vw-1vi" secondAttribute="bottom" id="EL3-x2-g4e"/>
                                     <constraint firstAttribute="trailing" secondItem="XVj-vw-1vi" secondAttribute="trailing" id="hCc-Ri-7fQ"/>
                                     <constraint firstAttribute="width" secondItem="i8a-TU-xSn" secondAttribute="height" multiplier="1:1" id="imy-HZ-hBV"/>
                                     <constraint firstItem="XVj-vw-1vi" firstAttribute="top" secondItem="i8a-TU-xSn" secondAttribute="top" id="vc6-Hr-Xe5"/>
+                                    <constraint firstAttribute="bottom" secondItem="yWf-Kl-XTq" secondAttribute="bottom" id="yWa-Cs-qUu"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -91,6 +103,14 @@ Label</string>
                     <constraint firstAttribute="bottomMargin" secondItem="n8P-Yf-N7G" secondAttribute="bottom" priority="999" constant="6" id="qNY-z4-Bie"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="descriptionLabel" destination="Fi7-FP-36k" id="qdh-cr-Xpx"/>
+                <outlet property="feedImageContainer" destination="i8a-TU-xSn" id="H9V-fg-dtC"/>
+                <outlet property="feedImageRetryButton" destination="yWf-Kl-XTq" id="UC5-ec-4c3"/>
+                <outlet property="feedImageView" destination="XVj-vw-1vi" id="ZLz-sk-rbY"/>
+                <outlet property="locationContainer" destination="m8a-mG-RNt" id="U7A-HR-0q9"/>
+                <outlet property="locationLabel" destination="tfJ-Tu-QD3" id="zbz-y2-wgj"/>
+            </connections>
             <point key="canvasLocation" x="139" y="80"/>
         </tableViewCell>
     </objects>
