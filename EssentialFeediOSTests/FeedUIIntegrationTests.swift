@@ -20,6 +20,14 @@ final class FeedUIIntegrationTests: XCTestCase {
         XCTAssertEqual(sut.title, localized("FEED_VIEW_TITLE"))
     }
     
+    func test_tableViewHasHeaderView() {
+        let (sut, loader) = makeSUT()
+        sut.loadViewIfNeeded()
+        sut.simulateUserInitiatedFeedReload()
+        XCTAssertEqual(loader.loadFeedCallCount, 2, "Expected a loading request once view is loaded")
+        XCTAssertNotNil(sut.tableView.sectionHeaderHeight)
+    }
+    
     func test_loadFeedActions_requestFeedFromLoader() {
         let (sut, loader) = makeSUT()
         XCTAssertEqual(loader.loadFeedCallCount, 0, "Expected no loading requests before view is loaded")
@@ -284,6 +292,14 @@ final class FeedUIIntegrationTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
     
+    func test_loadFeedCompletion_rendersErrorMessage() {
+        let (sut, _) = makeSUT()
+        
+        sut.loadViewIfNeeded()
+        XCTAssertNotNil(sut.errorView)
+
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: FeedViewController, loader: LoaderSpy) {
@@ -440,6 +456,14 @@ private extension FeedViewController {
         ds?.tableView?(tableView, cancelPrefetchingForRowsAt: [index])
     }
     
+    var errorView: ErrorView? {
+        tableView.tableHeaderView as? ErrorView
+    }
+    
+    var errorMessage: String? {
+        errorView?.message
+    }
+    
 }
 
 private extension FeedImageCell {
@@ -470,6 +494,8 @@ private extension FeedImageCell {
     func simulateRetryAction() {
         feedImageRetryButton.simulateTap()
     }
+    
+    
 }
 
 private extension UIImage {

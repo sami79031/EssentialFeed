@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="f30-he-BIn" customClass="ErrorView" customModule="EssentialFeediOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="34"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Tg-zD-p4m">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <inset key="contentEdgeInsets" minX="0.0" minY="8" maxX="0.0" maxY="8"/>
+                    <state key="normal" title="Error label">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="MBP-Fe-Gup"/>
+            <color key="backgroundColor" red="0.99951404330000004" green="0.41759261489999999" blue="0.4154433012" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="5Tg-zD-p4m" secondAttribute="trailing" id="N1T-b2-g8l"/>
+                <constraint firstItem="5Tg-zD-p4m" firstAttribute="leading" secondItem="f30-he-BIn" secondAttribute="leading" id="Nk2-CV-gZ8"/>
+                <constraint firstAttribute="bottom" secondItem="5Tg-zD-p4m" secondAttribute="bottom" id="QvB-bA-Qmp"/>
+                <constraint firstItem="5Tg-zD-p4m" firstAttribute="top" secondItem="f30-he-BIn" secondAttribute="top" id="fkn-3e-JAv"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="button" destination="5Tg-zD-p4m" id="fwn-2k-YNX"/>
+            </connections>
+            <point key="canvasLocation" x="-120" y="39"/>
+        </view>
+    </objects>
+</document>
