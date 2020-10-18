@@ -67,7 +67,6 @@
 		32E011192530BC5100A7F302 /* XCTestCase+ trackForMemoryLeaks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3286F0782527680F006E4759 /* XCTestCase+ trackForMemoryLeaks.swift */; };
 		32E0111E2530BD1800A7F302 /* FeedCacheTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32ED6A1E252CBD2A00008663 /* FeedCacheTestHelpers.swift */; };
 		32E7A1472524B23B006BAFBA /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E7A13D2524B23B006BAFBA /* EssentialFeed.framework */; };
-		32E7A14E2524B23B006BAFBA /* EssentialFeed.h in Headers */ = {isa = PBXBuildFile; fileRef = 32E7A1402524B23B006BAFBA /* EssentialFeed.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32E7A15B2524B302006BAFBA /* FeedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E7A15A2524B302006BAFBA /* FeedImage.swift */; };
 		32E7A15F2524B318006BAFBA /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E7A15E2524B318006BAFBA /* FeedLoader.swift */; };
 		32E7A16D2524BC21006BAFBA /* LoadFeedFromRemoteUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E7A16C2524BC21006BAFBA /* LoadFeedFromRemoteUseCaseTests.swift */; };
@@ -196,7 +195,6 @@
 		32E011032530BB0B00A7F302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32E0110E2530BB8F00A7F302 /* EssentialFeedCacheIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeedCacheIntegrationTests.swift; sourceTree = "<group>"; };
 		32E7A13D2524B23B006BAFBA /* EssentialFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EssentialFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		32E7A1402524B23B006BAFBA /* EssentialFeed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EssentialFeed.h; sourceTree = "<group>"; };
 		32E7A1412524B23B006BAFBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32E7A1462524B23B006BAFBA /* EssentialFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		32E7A14D2524B23B006BAFBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -494,7 +492,6 @@
 				32E7A1702524C221006BAFBA /* Feed API */,
 				32E7A1592524B2CF006BAFBA /* Feed Feature */,
 				32ED66F1252B3C0900008663 /* Feed Cache */,
-				32E7A1402524B23B006BAFBA /* EssentialFeed.h */,
 				32E7A1412524B23B006BAFBA /* Info.plist */,
 			);
 			path = EssentialFeed;
@@ -569,7 +566,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32E7A14E2524B23B006BAFBA /* EssentialFeed.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
