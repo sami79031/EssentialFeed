@@ -8,12 +8,9 @@
 import UIKit
 import EssentialFeed
 
-final public class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching, FeedErrorView {
-    
-    public func display(_ viewModel: FeedErrorViewModel) {
-        // TODO
-    }
-    
+final public class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching {
+
+    let errorView = ErrorView()
     private var refreshController: FeedRefreshViewController?
     var tableModel = [FeedImageCellController]() {
         didSet {
@@ -28,7 +25,7 @@ final public class FeedViewController: UITableViewController, UITableViewDataSou
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.tableHeaderView = ErrorView()
+        tableView.tableHeaderView = errorView
         tableView.register(FeedImageCell.self)
         tableView.prefetchDataSource = self
         refreshControl = refreshController?.view

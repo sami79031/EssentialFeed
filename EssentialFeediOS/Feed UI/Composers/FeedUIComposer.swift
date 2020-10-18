@@ -15,10 +15,11 @@ public final class FeedUIComposer {
         let presentationAdapter = FeedLoaderPresentationAdapter(feedLoader: MainQueueDispatchDecorator(decoratee: feedLoader))
         let refreshController = FeedRefreshViewController(delegate: presentationAdapter)
         let feedController = FeedViewController.makeWith(title: FeedPresenter.title, refreshController: refreshController)
+        let feedErrorViewAdapter = FeedErrorViewAdapter(controller: feedController)
         
         presentationAdapter.presenter = FeedPresenter(
             feedView: FeedViewAdapter(controller: feedController, imageLoader: MainQueueDispatchDecorator(decoratee: imageLoader)),
-            errorView: WeakRefVirtualProxy(feedController),
+            errorView: WeakRefVirtualProxy(feedErrorViewAdapter),
             loadingView: WeakRefVirtualProxy(refreshController))
         
         return feedController
@@ -33,5 +34,22 @@ private extension FeedViewController {
         
         return feedController
     }
+}
+
+final class FeedErrorViewAdapter: FeedErrorView {
+    private weak var controller: FeedViewController?
+    
+    init(controller: FeedViewController) {
+        self.controller = controller
+    }
+    
+    func display(_ viewModel: FeedErrorViewModel) {
+        guard let errorMessage = viewModel.message else {
+            controller?.errorView.hideMessage()
+            return
+        }
+        controller?.errorView.show(message: errorMessage)
+    }
+    
 }
 
