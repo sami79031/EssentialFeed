@@ -40,6 +40,10 @@ final class FeedPresenter {
         errorView.display(.noError)
         loadingView.display(FeedLoadingViewModel(isLoading: true))
     }
+    
+    func didFinishLoadingFeed() {
+        
+    }
 }
 
 class FeedPresenterTests: XCTestCase {
@@ -50,6 +54,22 @@ class FeedPresenterTests: XCTestCase {
         XCTAssertTrue(view.messages.isEmpty, "Exptected no view messaged")
     }
     
+    func test_didStartLoadingFeed_displaysNoErrorMessageAndStartsLoading() {
+        let (sut, view) = makeSUT()
+        
+        sut.didStartLoadingFeed()
+        
+        XCTAssertEqual(view.messages, [.display(errorMessage: .none), .display(isLoading: true)])
+    }
+    
+    func test_didStartLoadingFeed_displaysDidFinishLoadingFeed() {
+        let (sut, view) = makeSUT()
+        let feet = uniqueImageFeed().models
+        sut.didFinishLoadingFeed()
+        
+        XCTAssertEqual(view.messages, [.display(feed: .none), .display(isLoading: false)])
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: FeedPresenter, view: ViewSpy) {
@@ -58,14 +78,6 @@ class FeedPresenterTests: XCTestCase {
         trackForMemoryLeaks(view, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         return (sut, view)
-    }
-    
-    func test_didStartLoadingFeed_displaysNoErrorMessageAndStartsLoading() {
-        let (sut, view) = makeSUT()
-        
-        sut.didStartLoadingFeed()
-        
-        XCTAssertEqual(view.messages, [.display(errorMessage: .none), .display(isLoading: true)])
     }
     
     private class ViewSpy: FeedErrorView, FeedLoadingView {
