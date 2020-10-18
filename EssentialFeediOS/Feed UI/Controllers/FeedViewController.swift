@@ -6,9 +6,13 @@
 //
 
 import UIKit
+import EssentialFeed
 
-
-final public class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching {
+final public class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching, FeedErrorView {
+    
+    public func display(_ viewModel: FeedErrorViewModel) {
+        // TODO
+    }
     
     private var refreshController: FeedRefreshViewController?
     var tableModel = [FeedImageCellController]() {
