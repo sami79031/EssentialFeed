@@ -11,13 +11,21 @@ import EssentialFeed
 class RemoteFeedImageDataLoader {
     private let client: HTTPClient
     
+    init(client: HTTPClient) {
+        self.client = client
+    }
+    
     public enum Error: Swift.Error {
         case invalidData
     }
     
-    init(client: HTTPClient) {
-        self.client = client
-    }
+    private struct HTTPTaskWrapper: FeedImageDataLoaderTask {
+            let wrapped: HTTPClientTask
+            
+            func cancel() {
+                wrapped.cancel()
+            }
+        }
     
     func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) {
         client.get(from: url) { [weak self] result in
@@ -117,9 +125,13 @@ class RemoteFeedImageDataLoaderTests: XCTestCase {
         XCTAssertTrue(capturedResults.isEmpty)
     }
     
+    
     // MARK: - Helpers
     
     private class HTTPClientSpy: HTTPClient {
+        private struct Task: HTTPClientTask {
+                    func cancel() {}
+                }
         
         private var messages = [(url: URL, completion: (HTTPClientResult) -> Void)]()
         
@@ -127,8 +139,9 @@ class RemoteFeedImageDataLoaderTests: XCTestCase {
             return messages.map { $0.url }
         }
         
-        func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void) {
+        func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void) -> HTTPClientTask {
             messages.append((url, completion))
+            return Task()
         }
         
         func complete(with error: Error, at index: Int = 0) {
